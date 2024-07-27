@@ -1,26 +1,27 @@
 import cli.CliArgs;
-import cli.FileInputException;
+import cli.NoInputProvidedException;
 import cli.ParsedCliArgs;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
-import solutions.GivenTask;
 import solutions.InvalidInputException;
+import solutions.GivenTask;
 import solutions.ParseInput;
 import solutions.day_1.ParserDayOne;
 import solutions.day_2.ParserDayTwo;
+import solutions.day_3.ParserDayThree;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class Program {
-    private static final ParseInput[] solutionList = {new ParserDayOne(), new ParserDayTwo()};
+public final class Program {
+    private static final ParseInput[] solutionList = { new ParserDayOne(), new ParserDayTwo(), new ParserDayThree() };
 
     public static void main(String[] args) {
         try {
             var parsed = parseArgs(args);
             var parsedArgs = parsed.args();
-            var fileInput = tryGetFileInput(parsedArgs.getPath());
+            var fileInput = Program.tryGetInput(parsed);
             var dayNumber = parsedArgs.getDay() - 1;
             var hasSolution = dayNumber < solutionList.length;
             if (!hasSolution) {
@@ -28,12 +29,13 @@ public class Program {
             } else {
                 calculateSolution(dayNumber, fileInput, parsedArgs.getTask());
             }
-        } catch (IOException | FileInputException | InvalidInputException | ParameterException e) {
+        } catch (IOException | NoInputProvidedException | InvalidInputException | ParameterException e) {
             exitWithError(e.getMessage());
         }
     }
 
-    private static void calculateSolution(int dayNumber, String fileInput, GivenTask task) throws InvalidInputException {
+    private static void calculateSolution(int dayNumber, String fileInput, GivenTask task)
+            throws InvalidInputException {
         var parser = solutionList[dayNumber];
         var solver = parser.parse(fileInput);
         var solution = solver.produce(task);
@@ -42,9 +44,16 @@ public class Program {
         System.out.println(solution);
     }
 
-    private static String tryGetFileInput(String path) throws FileInputException, IOException {
-        if (path == null) {
-            throw new FileInputException("No file path provided");
+    private static String tryGetInput(ParsedCliArgs parsedArgs) throws NoInputProvidedException, IOException {
+        final var path = parsedArgs.args().getPath();
+        final var expression = parsedArgs.args().getExpression();
+        final var noFileGiven = path == null;
+        final var noExpressionGiven = expression == null;
+
+        if (noFileGiven && noExpressionGiven) {
+            throw new NoInputProvidedException("No file path or expression provided for the input");
+        } else if (!noExpressionGiven) {
+            return expression;
         } else {
             return Files.readString(Paths.get(path));
         }

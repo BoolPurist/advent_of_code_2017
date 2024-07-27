@@ -4,7 +4,6 @@ import solutions.day_2.ParserDayTwo;
 
 public class DayTwoTest {
 
-
     @Test
     public void differenceBetweenMinMax() {
         var input = Utils.tryGetResource(getClass(), "day_2_example.txt");
