@@ -9,18 +9,22 @@ import solutions.ParseInput;
 import solutions.day_1.ParserDayOne;
 import solutions.day_2.ParserDayTwo;
 import solutions.day_3.ParserDayThree;
+import solutions.day_4.ParserDayFour;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public final class Program {
-    private static final ParseInput[] solutionList = { new ParserDayOne(), new ParserDayTwo(), new ParserDayThree() };
+    private static final ParseInput[] solutionList = { new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(), new ParserDayFour() };
 
     public static void main(String[] args) {
         try {
             var parsed = parseArgs(args);
             var parsedArgs = parsed.args();
+            if (parsedArgs.isHelp()) {
+                parsed.commander().usage();
+            }
             var fileInput = Program.tryGetInput(parsed);
             var dayNumber = parsedArgs.getDay() - 1;
             var hasSolution = dayNumber < solutionList.length;
