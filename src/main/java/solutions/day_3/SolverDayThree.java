@@ -178,7 +178,7 @@ public final class SolverDayThree implements ProducesSolution {
     public String produce(GivenTask task) {
 
         switch (task) {
-            case GivenTask.First: {
+            case GivenTask.FIRST: {
                 final var ring = SolverDayThree.calculateRing(this.number);
                 final var finalPosition = SolverDayThree.calculateEndPosition(number, ring);
                 final var toReturn = SolverDayThree.getDistance(finalPosition);

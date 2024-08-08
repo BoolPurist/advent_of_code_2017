@@ -49,10 +49,10 @@ public final class SolverDayTwo implements ProducesSolution {
     @Override
     public String produce(GivenTask task) {
         switch (task) {
-            case First -> {
+            case FIRST -> {
                 return firstSolution();
             }
-            case Second -> {
+            case SECOND -> {
                 return secondSolution();
             }
         }

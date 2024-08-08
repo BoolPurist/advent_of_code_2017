@@ -1,14 +1,13 @@
-
-import static org.junit.jupiter.params.provider.Arguments.arguments;
-import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import solutions.GivenTask;
 import solutions.day_4.ParserDayFour;
+
+import java.util.stream.Stream;
+
+import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class DayFourTest {
     //
@@ -41,7 +40,7 @@ public class DayFourTest {
     public void detectValidityOfLetterSequence() {
         var input = "aa bb cc dd ee\naa bb cc dd aa\naa bb cc dd aaa";
         var expected = "2";
-        Utils.assertCase(input, new ParserDayFour(), GivenTask.First, expected);
+        Utils.assertCase(input, new ParserDayFour(), GivenTask.FIRST, expected);
 
     }
 
@@ -50,14 +49,14 @@ public class DayFourTest {
         var input = Utils.tryGetResource(getClass(), "day_4_t2_examples.txt");
         ;
         var expected = "3";
-        Utils.assertCase(input, new ParserDayFour(), GivenTask.Second, expected);
+        Utils.assertCase(input, new ParserDayFour(), GivenTask.SECOND, expected);
 
     }
 
     @ParameterizedTest
     @MethodSource("solutionsFromExampleTaskTwo")
     public void detectNonAnagrams(String input, String expected) {
-        Utils.assertCase(input, new ParserDayFour(), GivenTask.Second, expected);
+        Utils.assertCase(input, new ParserDayFour(), GivenTask.SECOND, expected);
     }
 
 }

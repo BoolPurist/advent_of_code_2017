@@ -1,4 +1,3 @@
-
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -56,13 +55,13 @@ public final class DayThreeTest {
     @ParameterizedTest
     @MethodSource("solutionsFromExamples")
     void assertDayOneTaskOne(String input, String expected) {
-        Utils.assertCase(input, new ParserDayThree(), GivenTask.First, expected);
+        Utils.assertCase(input, new ParserDayThree(), GivenTask.FIRST, expected);
     }
 
     @ParameterizedTest
     @MethodSource("solutionsFromExampleTaskTwo")
     void assertDayOneTaskTwo(String input, String expected) {
-        Utils.assertCase(input, new ParserDayThree(), GivenTask.Second, expected);
+        Utils.assertCase(input, new ParserDayThree(), GivenTask.SECOND, expected);
     }
 
 }

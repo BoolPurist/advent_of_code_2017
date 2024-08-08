@@ -7,14 +7,14 @@ public class DayTwoTest {
     @Test
     public void differenceBetweenMinMax() {
         var input = Utils.tryGetResource(getClass(), "day_2_example.txt");
-        Utils.assertCase(input, new ParserDayTwo(), GivenTask.First, "18");
+        Utils.assertCase(input, new ParserDayTwo(), GivenTask.FIRST, "18");
 
     }
 
     @Test
     public void divisionBetweenEven() {
         var input = Utils.tryGetResource(getClass(), "day_2_t2_example.txt");
-        Utils.assertCase(input, new ParserDayTwo(), GivenTask.Second, "9");
+        Utils.assertCase(input, new ParserDayTwo(), GivenTask.SECOND, "9");
 
     }
 

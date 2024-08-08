@@ -1,116 +1,114 @@
 package solutions.day_6;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-
 import solutions.GivenTask;
 import solutions.ProducesSolution;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.function.BiFunction;
+
 public class SolverDaySix implements ProducesSolution {
-	private final List<Integer> data;
+    private final List<Integer> data;
 
-	public SolverDaySix(List<Integer> data) {
-		this.data = data;
-	}
+    public SolverDaySix(List<Integer> data) {
+        this.data = data;
+    }
 
-	@Override
-	public String produce(GivenTask task) {
-		switch (task) {
-			case GivenTask.First:
-				return findUpToRepetition((cycle, _) -> String.valueOf(cycle));
-			default:
-				return findUpToRepetition(new BiFunction<Integer, String, String>() {
-					private Integer cyclesAfterFistEncounter = 0;
-					private String firstEncounter = null;
+    private static Integer getMaxIndexOfBlocks(List<Integer> seq) {
+        var max = seq.getFirst();
+        var max_index = 0;
+        for (int i = 1; i < seq.size(); i++) {
+            final var currentElement = seq.get(i);
 
-					public String apply(Integer cycle, String encounter) {
+            if (currentElement > max) {
+                max = currentElement;
+                max_index = i;
+            }
+        }
+        return max_index;
+    }
 
-						if (this.firstEncounter == null) {
-							this.firstEncounter = encounter;
-							this.cyclesAfterFistEncounter = cycle;
-							return null;
-						} else if (this.firstEncounter.equals(encounter)) {
-							final var cycleNumberAfterSecond = cycle - this.cyclesAfterFistEncounter;
-							return String.valueOf(cycleNumberAfterSecond);
-						} else {
-							return null;
-						}
-					}
-				});
-		}
-	}
+    private static Integer wrappingIncrement(Integer number, Integer size) {
+        return (number + 1) % size;
+    }
 
-	private String findUpToRepetition(BiFunction<Integer, String, String> onFoundSame) {
+    private static String joinBlocksToString(StringBuilder builder, List<Integer> toJoin) {
+        for (Integer integer : toJoin) {
+            builder.append(" ");
+            builder.append(integer);
+        }
+        final var toReturn = builder.toString();
+        builder.setLength(0);
+        return toReturn;
+    }
 
-		var currentBuffer = new ArrayList<>(this.data);
-		if (currentBuffer.isEmpty()) {
-			return "0";
-		}
-		var max_index = getMaxIndexOfBlocks(currentBuffer);
+    @Override
+    public String produce(GivenTask task) {
+        switch (task) {
+            case GivenTask.FIRST:
+                return findUpToRepetition((cycle, _) -> String.valueOf(cycle));
+            default:
+                return findUpToRepetition(new BiFunction<Integer, String, String>() {
+                    private Integer cyclesAfterFistEncounter = 0;
+                    private String firstEncounter = null;
 
-		// Loop
-		var savedBlockStates = new HashSet<String>();
-		var blockCycle = 0;
-		var startBlockIndex = max_index;
-		var setKeyBuilder = new StringBuilder();
+                    public String apply(Integer cycle, String encounter) {
 
-		final var bufferSize = currentBuffer.size();
-		while (true) {
-			blockCycle++;
-			var leftSteps = currentBuffer.get(startBlockIndex);
-			currentBuffer.set(startBlockIndex, 0);
+                        if (this.firstEncounter == null) {
+                            this.firstEncounter = encounter;
+                            this.cyclesAfterFistEncounter = cycle;
+                            return null;
+                        } else if (this.firstEncounter.equals(encounter)) {
+                            final var cycleNumberAfterSecond = cycle - this.cyclesAfterFistEncounter;
+                            return String.valueOf(cycleNumberAfterSecond);
+                        } else {
+                            return null;
+                        }
+                    }
+                });
+        }
+    }
 
-			for (int i = wrappingIncrement(startBlockIndex, bufferSize); 0 < leftSteps; i = wrappingIncrement(i,
-					bufferSize)) {
-				leftSteps--;
-				final var oldValue = currentBuffer.get(i);
-				final var newValue = oldValue + 1;
-				currentBuffer.set(i, newValue);
-			}
+    private String findUpToRepetition(BiFunction<Integer, String, String> onFoundSame) {
 
-			final var blockStateAfterCycle = joinBlocksToString(setKeyBuilder, currentBuffer);
-			if (savedBlockStates.contains(blockStateAfterCycle)) {
-				final var applied = onFoundSame.apply(blockCycle, blockStateAfterCycle);
-				if (applied != null) {
-					return applied;
-				}
-			} else {
-				savedBlockStates.add(blockStateAfterCycle);
-			}
-			startBlockIndex = getMaxIndexOfBlocks(currentBuffer);
-		}
-	}
+        var currentBuffer = new ArrayList<>(this.data);
+        if (currentBuffer.isEmpty()) {
+            return "0";
+        }
+        var max_index = getMaxIndexOfBlocks(currentBuffer);
 
-	private static Integer getMaxIndexOfBlocks(List<Integer> seq) {
-		var max = seq.getFirst();
-		var max_index = 0;
-		for (int i = 1; i < seq.size(); i++) {
-			final var currentElement = seq.get(i);
+        // Loop
+        var savedBlockStates = new HashSet<String>();
+        var blockCycle = 0;
+        var startBlockIndex = max_index;
+        var setKeyBuilder = new StringBuilder();
 
-			if (currentElement > max) {
-				max = currentElement;
-				max_index = i;
-			}
-		}
-		return max_index;
-	}
+        final var bufferSize = currentBuffer.size();
+        while (true) {
+            blockCycle++;
+            var leftSteps = currentBuffer.get(startBlockIndex);
+            currentBuffer.set(startBlockIndex, 0);
 
-	private static Integer wrappingIncrement(Integer number, Integer size) {
-		return (number + 1) % size;
-	}
+            for (int i = wrappingIncrement(startBlockIndex, bufferSize); 0 < leftSteps; i = wrappingIncrement(i,
+                    bufferSize)) {
+                leftSteps--;
+                final var oldValue = currentBuffer.get(i);
+                final var newValue = oldValue + 1;
+                currentBuffer.set(i, newValue);
+            }
 
-	private static String joinBlocksToString(StringBuilder builder, List<Integer> toJoin) {
-		for (Integer integer : toJoin) {
-			builder.append(" ");
-			builder.append(integer);
-		}
-		final var toReturn = builder.toString();
-		builder.setLength(0);
-		return toReturn;
-	}
+            final var blockStateAfterCycle = joinBlocksToString(setKeyBuilder, currentBuffer);
+            if (savedBlockStates.contains(blockStateAfterCycle)) {
+                final var applied = onFoundSame.apply(blockCycle, blockStateAfterCycle);
+                if (applied != null) {
+                    return applied;
+                }
+            } else {
+                savedBlockStates.add(blockStateAfterCycle);
+            }
+            startBlockIndex = getMaxIndexOfBlocks(currentBuffer);
+        }
+    }
 
 }

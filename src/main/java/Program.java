@@ -3,8 +3,8 @@ import cli.NoInputProvidedException;
 import cli.ParsedCliArgs;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
-import solutions.InvalidInputException;
 import solutions.GivenTask;
+import solutions.InvalidInputException;
 import solutions.ParseInput;
 import solutions.day_1.ParserDayOne;
 import solutions.day_2.ParserDayTwo;
@@ -12,14 +12,15 @@ import solutions.day_3.ParserDayThree;
 import solutions.day_4.ParserDayFour;
 import solutions.day_5.ParserDayFive;
 import solutions.day_6.ParserDaySix;
+import solutions.day_7.ParserDaySeven;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public final class Program {
-    private static final ParseInput[] solutionList = { new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
-            new ParserDayFour(), new ParserDayFive(), new ParserDaySix() };
+    private static final ParseInput[] solutionList = {new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
+            new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven()};
 
     public static void main(String[] args) {
         try {

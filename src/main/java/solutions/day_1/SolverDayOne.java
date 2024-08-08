@@ -15,10 +15,10 @@ public final class SolverDayOne implements ProducesSolution {
     @Override
     public String produce(GivenTask task) {
         switch (task) {
-            case First -> {
+            case FIRST -> {
                 return calcSum(index -> (index + 1));
             }
-            case Second -> {
+            case SECOND -> {
                 final var halfwayLength = this.digits.length / 2;
                 return calcSum(index -> (index + halfwayLength));
             }

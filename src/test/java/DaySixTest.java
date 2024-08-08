@@ -1,6 +1,4 @@
-
 import org.junit.jupiter.api.Test;
-
 import solutions.GivenTask;
 import solutions.day_6.ParserDaySix;
 
@@ -10,12 +8,13 @@ public class DaySixTest {
     void findFirstRepetition() {
         final var input = "0 2 7 0";
         final var expected = "5";
-        Utils.assertCase(input, new ParserDaySix(), GivenTask.First, expected);
+        Utils.assertCase(input, new ParserDaySix(), GivenTask.FIRST, expected);
     }
+
     @Test
     void findLoopOfFirstRepetition() {
         final var input = "0 2 7 0";
         final var expected = "4";
-        Utils.assertCase(input, new ParserDaySix(), GivenTask.Second, expected);
+        Utils.assertCase(input, new ParserDaySix(), GivenTask.SECOND, expected);
     }
 }

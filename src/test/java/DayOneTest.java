@@ -46,26 +46,26 @@ public class DayOneTest {
     @ParameterizedTest
     @MethodSource("inputAndExpectedSolution")
     void assertDayOneTaskOne(String input, String expected) {
-        Utils.assertCase(input, new ParserDayOne(), GivenTask.First, expected);
+        Utils.assertCase(input, new ParserDayOne(), GivenTask.FIRST, expected);
     }
 
     @Test
     void assertDayOneReadFirstTask() {
         var input = Utils.tryGetResource(getClass(), "day_1_real.txt");
-        Utils.assertCase(input, new ParserDayOne(), GivenTask.First, "1029");
+        Utils.assertCase(input, new ParserDayOne(), GivenTask.FIRST, "1029");
 
     }
 
     @Test
     void assertDayOneReadSecondTask() {
         var input = Utils.tryGetResource(getClass(), "day_1_real.txt");
-        Utils.assertCase(input, new ParserDayOne(), GivenTask.Second, "1220");
+        Utils.assertCase(input, new ParserDayOne(), GivenTask.SECOND, "1220");
 
     }
 
     @ParameterizedTest
     @MethodSource("inputAndExpectedSolutionTwo")
     void assertDayOneTaskTwo(String input, String expected) {
-        Utils.assertCase(input, new ParserDayOne(), GivenTask.Second, expected);
+        Utils.assertCase(input, new ParserDayOne(), GivenTask.SECOND, expected);
     }
 }

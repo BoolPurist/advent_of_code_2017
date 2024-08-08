@@ -9,8 +9,8 @@ public class ConvertGivenTask implements IStringConverter<GivenTask> {
     public GivenTask convert(String s) {
         int numberValue = Integer.parseInt(s);
         return switch (numberValue) {
-            case 1 -> GivenTask.First;
-            case 2 -> GivenTask.Second;
+            case 1 -> GivenTask.FIRST;
+            case 2 -> GivenTask.SECOND;
             default -> throw new RuntimeException("aa");
         };
     }
