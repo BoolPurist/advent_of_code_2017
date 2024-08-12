@@ -1,3 +1,6 @@
+package tests;
+
+import commons.Utils;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,7 +12,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-public class DayOneTest {
+class DayOneTest {
 
     // 1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the
     // second digit and the third digit (2) matches the fourth digit.
@@ -51,14 +54,14 @@ public class DayOneTest {
 
     @Test
     void assertDayOneReadFirstTask() {
-        var input = Utils.tryGetResource(getClass(), "day_1_real.txt");
+        var input = Utils.tryGetResource(getClass(), "../day_1_real.txt");
         Utils.assertCase(input, new ParserDayOne(), GivenTask.FIRST, "1029");
 
     }
 
     @Test
     void assertDayOneReadSecondTask() {
-        var input = Utils.tryGetResource(getClass(), "day_1_real.txt");
+        var input = Utils.tryGetResource(getClass(), "../day_1_real.txt");
         Utils.assertCase(input, new ParserDayOne(), GivenTask.SECOND, "1220");
 
     }

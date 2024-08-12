@@ -1,3 +1,5 @@
+package commons;
+
 import solutions.GivenTask;
 import solutions.InvalidInputException;
 import solutions.ParseInput;

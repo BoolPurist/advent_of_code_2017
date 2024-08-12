@@ -1,8 +1,11 @@
+package tests;
+
+import commons.Utils;
 import org.junit.jupiter.api.Test;
 import solutions.GivenTask;
 import solutions.day_6.ParserDaySix;
 
-public class DaySixTest {
+class DaySixTest {
 
     @Test
     void findFirstRepetition() {

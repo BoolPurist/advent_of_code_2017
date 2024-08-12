@@ -1,8 +1,11 @@
+package tests;
+
+import commons.Utils;
 import org.junit.jupiter.api.Test;
 import solutions.GivenTask;
 import solutions.day_5.ParserDayFive;
 
-public class DayFiveTest {
+class DayFiveTest {
     private static final String INPUT = """
             0
             3
@@ -11,12 +14,12 @@ public class DayFiveTest {
             -3""";
 
     @Test
-    public void calcStepsWhenLeavingList() {
+    void calcStepsWhenLeavingList() {
         Utils.assertCase(INPUT, new ParserDayFive(), GivenTask.FIRST, "5");
     }
 
     @Test
-    public void calcStepsWhenLeavingListTask2() {
+    void calcStepsWhenLeavingListTask2() {
         Utils.assertCase(INPUT, new ParserDayFive(), GivenTask.SECOND, "10");
     }
 }

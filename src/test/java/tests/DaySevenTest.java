@@ -1,3 +1,6 @@
+package tests;
+
+import commons.Utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,7 +13,7 @@ import solutions.day_7.ProgramOfTower;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class DaySevenTest {
+class DaySevenTest {
     static Stream<Arguments> stringToProgramInTower() {
 
         return Stream.of(Arguments.arguments("pbga (66)", new ProgramOfTower("pbga", 66, List.of())),
@@ -21,13 +24,13 @@ public class DaySevenTest {
 
     @ParameterizedTest
     @MethodSource("stringToProgramInTower")
-    public void shouldParseLineForProgramInTower(String line, ProgramOfTower expectedResult) {
+    void shouldParseLineForProgramInTower(String line, ProgramOfTower expectedResult) {
         final var actual = ParserDaySeven.parseLine(line);
         Assertions.assertEquals(expectedResult, actual);
     }
 
     @Test
-    public void shouldFindRootProgramTask1() {
+    void shouldFindRootProgramTask1() {
 
         final var input = """
                 pbga (66)
@@ -48,7 +51,7 @@ public class DaySevenTest {
     }
 
     @Test
-    public void shouldFindUnbalancedProgramTask2() {
+    void shouldFindUnbalancedProgramTask2() {
 
         final var input = """
                 pbga (66)

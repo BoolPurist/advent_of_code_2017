@@ -14,6 +14,7 @@ import solutions.day_5.ParserDayFive;
 import solutions.day_6.ParserDaySix;
 import solutions.day_7.ParserDaySeven;
 import solutions.day_8.ParserDayEight;
+import solutions.day_9.ParserDayNine;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +22,8 @@ import java.nio.file.Paths;
 
 public final class Program {
     private static final ParseInput[] solutionList = {new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
-            new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven(), new ParserDayEight()};
+            new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven(), new ParserDayEight(), new ParserDayNine()
+    };
 
     public static void main(String[] args) {
         try {
