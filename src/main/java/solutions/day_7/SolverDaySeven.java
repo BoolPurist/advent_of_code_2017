@@ -45,7 +45,7 @@ public class SolverDaySeven implements ProducesSolution {
         return supposedWeight.get();
     }
 
-    private SubTowerBalance searchForUnbalanced(SubTowerBalance currentRoot, Map<String, TowerProgramInHierarchy> tree) {
+    private SubTowerBalance searchForUnbalanced(final SubTowerBalance currentRoot, final Map<String, TowerProgramInHierarchy> tree) {
         final var children = currentRoot.node().program().children();
         if (children.isEmpty()) {
             return currentRoot;
@@ -58,7 +58,7 @@ public class SolverDaySeven implements ProducesSolution {
         }
         final var sameWeight = firstChild.totalWeight();
         var sum = sameWeight;
-        var afterFirst = children.stream().skip(1);
+        final var afterFirst = children.stream().skip(1);
         for (final var child : afterFirst.toList()) {
             final var node = tree.get(child);
             final var summedChild = searchForUnbalanced(SubTowerBalance.withoutHoldingDisc(node), tree);
@@ -71,13 +71,11 @@ public class SolverDaySeven implements ProducesSolution {
             final var signedCurrentWeight = currentWeight.value();
             if (signedCurrentWeight > signedSupposedWeight) {
                 final var diff = signedCurrentWeight - signedSupposedWeight;
-
-                final var supposedWeight = summedChild.node().program().weight() - diff;
-
+                final var supposedWeight = summedChild.weight().value() - diff;
                 return new SubTowerBalance(summedChild.node(), sum, Optional.of(new PositiveInteger(supposedWeight)));
             } else if (signedCurrentWeight < signedSupposedWeight) {
                 final var diff = signedSupposedWeight - signedCurrentWeight;
-                final var supposedWeight = firstChild.node().program().weight() - diff;
+                final var supposedWeight = firstChild.weight().value() - diff;
                 return new SubTowerBalance(summedChild.node(), sum, Optional.of(new PositiveInteger(supposedWeight)));
             }
         }
@@ -91,12 +89,10 @@ public class SolverDaySeven implements ProducesSolution {
         final var nameMappedToProgram = this.data.list().stream().collect(Collectors.toMap(ProgramOfTower::name, program -> program));
         HashMap<String, TowerProgramInHierarchy> towerOfPrograms = new HashMap<>();
         for (final var nextProgram : this.data.list()) {
+
             final var name = nextProgram.name();
 
-            final var alreadyEncounteredAsChild = towerOfPrograms.containsKey(name);
-            if (!alreadyEncounteredAsChild) {
-                towerOfPrograms.put(name, new TowerProgramInHierarchy(nextProgram, Optional.empty()));
-            }
+            towerOfPrograms.computeIfAbsent(name, _ -> new TowerProgramInHierarchy(nextProgram, Optional.empty()));
 
             final var parent = towerOfPrograms.get(name);
             assert parent != null;

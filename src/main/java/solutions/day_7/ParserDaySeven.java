@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 public final class ParserDaySeven implements ParseInput {
     private static final Pattern regexLineProgramOfTower = Pattern.compile(
-            "(?<programName>\\w+)\\s+\\((?<weight>\\d+)\\)(\\s+->\\s+(?<children>(\\w+,\\s*)*(\\w+)))?");
+            "(?<programName>\\w+)\\s+\\((?<weight>\\d+)\\)(\\s+->\\s+(?<children>(\\w+,\\s*)*+(\\w+)))?");
 
     public static ProgramOfTower parseLine(String line) {
         Objects.requireNonNull(line);

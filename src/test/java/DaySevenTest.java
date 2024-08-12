@@ -14,6 +14,7 @@ public class DaySevenTest {
     static Stream<Arguments> stringToProgramInTower() {
 
         return Stream.of(Arguments.arguments("pbga (66)", new ProgramOfTower("pbga", 66, List.of())),
+                Arguments.arguments("xxxx (1222) -> aa2", new ProgramOfTower("xxxx", 1222, List.of("aa2"))),
                 Arguments.arguments("fwft (72) -> ktlj, cntj, xhth", new ProgramOfTower("fwft", 72, List.of("ktlj", "cntj", "xhth")))
         );
     }

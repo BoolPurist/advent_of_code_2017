@@ -15,6 +15,10 @@ public record SubTowerBalance(TowerProgramInHierarchy node, PositiveInteger tota
         return new SubTowerBalance(root, new PositiveInteger(root.program().weight()), Optional.empty());
     }
 
+    public PositiveInteger weight() {
+        return new PositiveInteger(this.node.program().weight());
+    }
+
     public SubTowerBalance isUnbalanced(PositiveInteger supposedWeight) {
         Objects.requireNonNull(supposedWeight);
         return new SubTowerBalance(this.node, this.totalWeight, Optional.of(supposedWeight));

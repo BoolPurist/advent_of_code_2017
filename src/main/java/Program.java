@@ -13,6 +13,7 @@ import solutions.day_4.ParserDayFour;
 import solutions.day_5.ParserDayFive;
 import solutions.day_6.ParserDaySix;
 import solutions.day_7.ParserDaySeven;
+import solutions.day_8.ParserDayEight;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,7 +21,7 @@ import java.nio.file.Paths;
 
 public final class Program {
     private static final ParseInput[] solutionList = {new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
-            new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven()};
+            new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven(), new ParserDayEight()};
 
     public static void main(String[] args) {
         try {
@@ -33,7 +34,7 @@ public final class Program {
             var dayNumber = parsedArgs.getDay() - 1;
             var hasSolution = dayNumber < solutionList.length;
             if (!hasSolution) {
-                exitWithError(String.format("There is no solution in the given day " + (dayNumber + 1)));
+                exitWithError(String.format("There is no solution in the given day %n", (dayNumber + 1)));
             } else {
                 calculateSolution(dayNumber, fileInput, parsedArgs.getTask());
             }
