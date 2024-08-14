@@ -2,7 +2,7 @@ package solutions.day_11;
 
 import solutions.ProducesSolution;
 
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class SolverDayPart2Eleven implements ProducesSolution {
@@ -14,13 +14,16 @@ public class SolverDayPart2Eleven implements ProducesSolution {
 
     @Override
     public String produce() {
-        var solvedRoutes = new HashMap<HexagonPosition, Integer>();
+        var solvedRoutes = new HashSet<HexagonPosition>();
         var maxDistance = -1;
-        var currentPosition = HexagonPosition.zero();
+        var currentPosition = HexagonPosition.origin();
         for (final var nextStep : route) {
             currentPosition = nextStep.move(currentPosition);
-            solvedRoutes.computeIfAbsent(currentPosition, SolverDayEleven::calcShortestDistanceToZero);
-            maxDistance = Math.max(maxDistance, solvedRoutes.get(currentPosition));
+            final var didNotCalcRouteBefore = solvedRoutes.add(currentPosition);
+            if (didNotCalcRouteBefore) {
+                final var potentialNewMax = SolverDayEleven.calcShortestDistanceToZero(currentPosition);
+                maxDistance = Math.max(maxDistance, potentialNewMax);
+            }
         }
         return String.valueOf(maxDistance);
     }
