@@ -50,8 +50,8 @@ public final class Program {
     private static void calculateSolution(int dayNumber, String fileInput, GivenTask task)
             throws InvalidInputException {
         var parser = solutionList[dayNumber];
-        var solver = parser.parse(fileInput);
-        var solution = solver.produce(task);
+        var solver = parser.parse(fileInput, task);
+        var solution = solver.produce();
         System.out.println("Solution");
         System.out.println("=".repeat(10));
         System.out.println(solution);

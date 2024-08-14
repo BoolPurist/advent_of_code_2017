@@ -7,9 +7,11 @@ import java.util.List;
 
 public final class SolverDayTwo implements ProducesSolution {
     private final List<List<Integer>> matrix;
+    private GivenTask task;
 
-    public SolverDayTwo(List<List<Integer>> matrix) {
+    public SolverDayTwo(List<List<Integer>> matrix, GivenTask task) {
         this.matrix = matrix.stream().map(notImmutable -> notImmutable.stream().toList()).toList();
+        this.task = task;
     }
 
     //5 9 2 8
@@ -47,7 +49,7 @@ public final class SolverDayTwo implements ProducesSolution {
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         switch (task) {
             case FIRST -> {
                 return firstSolution();

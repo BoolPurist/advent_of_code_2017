@@ -12,13 +12,13 @@ public class SolverDayTen implements ProducesSolution {
     public static final int STANDARD_LENGTH = 256;
 
     private final List<Integer> lengthInput;
-    private final List<Integer> parsedInputAsAcii;
     private final int length;
+    private GivenTask task;
 
-    public SolverDayTen(List<Integer> data, List<Integer> ACIILengthInput, int length) {
+    public SolverDayTen(List<Integer> data, int length, GivenTask task) {
         this.lengthInput = data;
         this.length = length;
-        this.parsedInputAsAcii = ACIILengthInput;
+        this.task = task;
     }
 
     private static Integer calcHash(int[] toCheck) {
@@ -106,7 +106,7 @@ public class SolverDayTen implements ProducesSolution {
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         return switch (task) {
             case FIRST -> solveTask1();
             case SECOND -> solveTask2();
@@ -120,7 +120,7 @@ public class SolverDayTen implements ProducesSolution {
     }
 
     private String solveTask2() {
-        return solveTask2By(this.parsedInputAsAcii, this.length);
+        return solveTask2By(this.lengthInput, this.length);
     }
 
 }

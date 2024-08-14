@@ -10,9 +10,11 @@ import java.util.function.BiFunction;
 
 public class SolverDaySix implements ProducesSolution {
     private final List<Integer> data;
+    private GivenTask task;
 
-    public SolverDaySix(List<Integer> data) {
+    public SolverDaySix(List<Integer> data, GivenTask task) {
         this.data = data;
+        this.task = task;
     }
 
     private static Integer getMaxIndexOfBlocks(List<Integer> seq) {
@@ -44,7 +46,7 @@ public class SolverDaySix implements ProducesSolution {
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         switch (task) {
             case GivenTask.FIRST:
                 return findUpToRepetition((cycle, _) -> String.valueOf(cycle));

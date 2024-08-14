@@ -1,5 +1,6 @@
 package solutions.day_8;
 
+import solutions.GivenTask;
 import solutions.InvalidInputException;
 import solutions.ParseInput;
 import solutions.ProducesSolution;
@@ -33,13 +34,13 @@ public final class ParserDayEight implements ParseInput {
     }
 
     @Override
-    public ProducesSolution parse(String input) throws InvalidInputException {
+    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
         var foundNames = new HashSet<String>();
         final var instructions = input.lines().map(line -> {
             final var parsed = parseLine(line);
             foundNames.addAll(parsed.first());
             return parsed.second();
         }).toList();
-        return new SolverDayEight(foundNames, instructions);
+        return new SolverDayEight(task, foundNames, instructions);
     }
 }

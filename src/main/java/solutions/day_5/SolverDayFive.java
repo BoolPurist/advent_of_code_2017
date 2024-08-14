@@ -9,13 +9,15 @@ import java.util.function.Function;
 
 public class SolverDayFive implements ProducesSolution {
     private final List<Integer> data;
+    private final GivenTask task;
 
-    public SolverDayFive(List<Integer> data) {
+    public SolverDayFive(List<Integer> data, GivenTask task) {
         this.data = data;
+        this.task = task;
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         final Function<Integer, Integer> stepMapping = task == GivenTask.FIRST ? e -> e + 1
                 : e -> e < 3 ? e + 1 : e - 1;
         return goThroughInstructions(stepMapping);

@@ -1,5 +1,6 @@
 package solutions.day_10;
 
+import solutions.GivenTask;
 import solutions.InvalidInputException;
 import solutions.ParseInput;
 import solutions.ProducesSolution;
@@ -65,10 +66,11 @@ public class ParserDayTen implements ParseInput {
 
 
     @Override
-    public ProducesSolution parse(String input) throws InvalidInputException {
-        final var parsed = splitInputToParse(input);
-        final var inputAsACII = createACIICodesWithSuffix(input);
-        final var ACIIParsed = splitInputToParse(inputAsACII);
-        return new SolverDayTen(parsed, ACIIParsed, length);
+    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+        final var parsed = switch (task) {
+            case FIRST -> splitInputToParse(input);
+            case SECOND -> splitInputToParse(createACIICodesWithSuffix(input));
+        };
+        return new SolverDayTen(parsed, length, task);
     }
 }

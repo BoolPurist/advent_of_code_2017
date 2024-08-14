@@ -28,8 +28,8 @@ class DayTenTest {
 
     private static void assertCase(String input, int length, String expectedOutput, int[] expectedSequence) {
         var parser = new ParserDayTen(length);
-        var solver = (SolverDayTen) parser.parse(input);
-        var output = solver.produce(GivenTask.FIRST);
+        var solver = (SolverDayTen) parser.parse(input, GivenTask.FIRST);
+        var output = solver.produce();
         final var firstRound = AfterRound.firstRound(IntStream.range(0, length).toArray());
         var sequence = SolverDayTen.produceReversedSequence(firstRound, solver.getLengthInput());
         Assertions.assertArrayEquals(expectedSequence, sequence.reversed());

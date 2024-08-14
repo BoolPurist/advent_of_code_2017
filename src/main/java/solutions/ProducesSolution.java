@@ -1,5 +1,5 @@
 package solutions;
 
 public interface ProducesSolution {
-    String produce(GivenTask task);
+    String produce();
 }

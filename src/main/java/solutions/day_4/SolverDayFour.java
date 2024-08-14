@@ -14,9 +14,11 @@ public class SolverDayFour implements ProducesSolution {
     private static final int IS_NO_ANAGRAM = 1;
 
     private final List<List<String>> data;
+    private GivenTask task;
 
-    public SolverDayFour(List<List<String>> data) {
+    public SolverDayFour(List<List<String>> data, GivenTask task) {
         this.data = data;
+        this.task = task;
     }
 
     private static boolean isAnagram(List<HashMap<Character, Integer>> possibleAnagrams,
@@ -54,7 +56,7 @@ public class SolverDayFour implements ProducesSolution {
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         switch (task) {
             case GivenTask.FIRST:
                 return this.solveFirstTask();

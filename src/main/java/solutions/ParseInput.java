@@ -1,5 +1,5 @@
 package solutions;
 
 public interface ParseInput {
-    ProducesSolution parse(String input) throws InvalidInputException;
+    ProducesSolution parse(String input, GivenTask task) throws InvalidInputException;
 }

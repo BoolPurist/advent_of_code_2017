@@ -13,13 +13,15 @@ import java.util.stream.Collectors;
 
 public class SolverDaySeven implements ProducesSolution {
     private final ReadOnlyList<ProgramOfTower> data;
+    private GivenTask task;
 
-    public SolverDaySeven(ReadOnlyList<ProgramOfTower> input) {
+    public SolverDaySeven(ReadOnlyList<ProgramOfTower> input, GivenTask task) {
         this.data = input;
+        this.task = task;
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         return switch (task) {
             case FIRST -> buildUpTowerOfPrograms().first();
             case SECOND -> String.valueOf(calcCorrectionForTheOneUnbalanced().value());

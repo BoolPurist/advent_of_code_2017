@@ -5,14 +5,16 @@ import solutions.ProducesSolution;
 
 public class SolverDayNine implements ProducesSolution {
     private final String input;
+    private GivenTask task;
 
-    public SolverDayNine(String input) {
+    public SolverDayNine(String input, GivenTask task) {
         this.input = input;
+        this.task = task;
     }
 
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         return switch (task) {
             case FIRST -> String.valueOf(parseStream().groupCount());
             case SECOND -> String.valueOf(parseStream().garbageCount());

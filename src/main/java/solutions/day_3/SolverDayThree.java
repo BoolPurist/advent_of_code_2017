@@ -11,9 +11,11 @@ public final class SolverDayThree implements ProducesSolution {
     private static final int ALL_CORNERS = 4;
     private static final int INCREASE_OF_EDGE_LENGTH = 2;
     private final int number;
+    private GivenTask task;
 
-    public SolverDayThree(int number) {
+    public SolverDayThree(int number, GivenTask task) {
         this.number = number;
+        this.task = task;
     }
 
     private static int getNextSquare(HashMap<Position, Integer> currentNeighbors,
@@ -175,7 +177,7 @@ public final class SolverDayThree implements ProducesSolution {
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
 
         switch (task) {
             case GivenTask.FIRST: {

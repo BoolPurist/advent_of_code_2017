@@ -7,13 +7,15 @@ import java.util.function.Function;
 
 public final class SolverDayOne implements ProducesSolution {
     private final int[] digits;
+    private GivenTask task;
 
-    public SolverDayOne(int[] digits) {
+    public SolverDayOne(int[] digits, GivenTask task) {
         this.digits = digits;
+        this.task = task;
     }
 
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         switch (task) {
             case FIRST -> {
                 return calcSum(index -> (index + 1));

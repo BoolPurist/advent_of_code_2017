@@ -16,8 +16,8 @@ public final class Utils {
 
     public static void assertCase(String input, ParseInput parser, GivenTask task, String expected) {
         try {
-            var solution = parser.parse(input);
-            var actual = solution.produce(task);
+            var solution = parser.parse(input, task);
+            var actual = solution.produce();
             assertEquals(expected, actual, String.format("Input: %s", input));
         } catch (InvalidInputException e) {
             throw new RuntimeException(e);

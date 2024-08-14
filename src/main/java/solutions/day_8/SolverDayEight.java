@@ -11,17 +11,18 @@ import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
 
 public class SolverDayEight implements ProducesSolution {
+    private final GivenTask task;
     private final Set<String> registers;
     private final List<Instruction> instructions;
 
-    public SolverDayEight(Set<String> registers, List<Instruction> instructions) {
+    public SolverDayEight(GivenTask task, Set<String> registers, List<Instruction> instructions) {
+        this.task = task;
         this.registers = registers;
         this.instructions = instructions.stream().toList();
     }
 
-
     @Override
-    public String produce(GivenTask task) {
+    public String produce() {
         return switch (task) {
             case FIRST -> solveTask1();
             case SECOND -> solveTask2();
