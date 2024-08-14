@@ -8,6 +8,7 @@ import solutions.InvalidInputException;
 import solutions.ParseInput;
 import solutions.day_1.ParserDayOne;
 import solutions.day_10.ParserDayTen;
+import solutions.day_11.ParserDayEleven;
 import solutions.day_2.ParserDayTwo;
 import solutions.day_3.ParserDayThree;
 import solutions.day_4.ParserDayFour;
@@ -24,7 +25,7 @@ import java.nio.file.Paths;
 public final class Program {
     private static final ParseInput[] solutionList = {new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
             new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven(), new ParserDayEight(), new ParserDayNine(),
-            new ParserDayTen()
+            new ParserDayTen(), new ParserDayEleven(),
     };
 
     public static void main(String[] args) {
