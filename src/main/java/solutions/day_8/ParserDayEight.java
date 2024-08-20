@@ -2,7 +2,7 @@ package solutions.day_8;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 import utils.Pair;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public final class ParserDayEight implements ParseInput {
+public final class ParserDayEight implements ParsePuzzelInput {
     private static final Pattern lineRegex = Pattern.compile("(?<register>\\w+)\\s+(?<modifierOperator>inc|dec)\\s+(?<modifierAmount>-?\\d+)\\s+if\\s+(?<leftCond>\\w+)\\s+(?<condOperator>>|<|>=|<=|==|!=)\\s+(?<rightCond>-?\\d+)");
 
     public static Pair<Set<String>, Instruction> parseLine(String line) {

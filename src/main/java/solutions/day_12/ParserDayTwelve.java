@@ -2,14 +2,14 @@ package solutions.day_12;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.regex.Pattern;
 
-public class ParserDayTwelve implements ParseInput {
+public class ParserDayTwelve implements ParsePuzzelInput {
     private static final Pattern regexForLine = Pattern.compile("(?<parent>\\d+) <-> (?<children>(\\d+, )*+(\\d+))");
 
     public static ProgramWithPipes parseOneLine(String line) {

@@ -1,3 +1,7 @@
+# custom settings
+/real_puzzle_input
+
+# defaults for java projects with maven and the intellij IDE
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

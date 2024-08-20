@@ -1,12 +1,12 @@
 package solutions.day_2;
 
 import solutions.GivenTask;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 
 import java.util.Arrays;
 
-public final class ParserDayTwo implements ParseInput {
+public final class ParserDayTwo implements ParsePuzzelInput {
     @Override
     public ProducesSolution parse(String input, GivenTask task) {
         var parsedLines = input.lines()

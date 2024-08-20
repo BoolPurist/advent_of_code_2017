@@ -1,5 +1,5 @@
 package solutions;
 
-public interface ParseInput {
+public interface ParsePuzzelInput {
     ProducesSolution parse(String input, GivenTask task) throws InvalidInputException;
 }

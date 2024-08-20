@@ -2,13 +2,13 @@ package solutions.day_10;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ParserDayTen implements ParseInput {
+public class ParserDayTen implements ParsePuzzelInput {
     private static final String SUFFIX = "17,31,73,47,23";
     private final int length;
 

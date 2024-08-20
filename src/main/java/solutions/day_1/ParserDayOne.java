@@ -2,10 +2,10 @@ package solutions.day_1;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 
-public final class ParserDayOne implements ParseInput {
+public final class ParserDayOne implements ParsePuzzelInput {
     @Override
     public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
         try {

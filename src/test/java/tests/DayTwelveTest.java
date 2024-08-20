@@ -1,5 +1,6 @@
 package tests;
 
+import commons.ComplexAssertions;
 import commons.Utils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -55,7 +56,7 @@ class DayTwelveTest {
         for (int i = 0; i < actual.size(); i++) {
             final var actualElement = actual.get(i);
             final var expectedElement = expected.get(i);
-            Utils.assertSet(expectedElement, actualElement);
+            ComplexAssertions.assertSet(expectedElement, actualElement);
         }
     }
 
@@ -92,7 +93,7 @@ class DayTwelveTest {
         final var expected = new HashSet<>(List.of("0", "2", "3", "4", "5", "6"));
 
         final var actual = SolverDayTwelve.calcProgramGroupFrom("0", input);
-        Utils.assertSet(expected, actual);
+        ComplexAssertions.assertSet(expected, actual);
     }
 
     @Test

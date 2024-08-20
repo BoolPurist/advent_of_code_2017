@@ -2,7 +2,7 @@ package solutions.day_7;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 import utils.ReadOnlyList;
 
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public final class ParserDaySeven implements ParseInput {
+public final class ParserDaySeven implements ParsePuzzelInput {
     private static final Pattern regexLineProgramOfTower = Pattern.compile(
             "(?<programName>\\w+)\\s+\\((?<weight>\\d+)\\)(\\s+->\\s+(?<children>(\\w+,\\s*)*+(\\w+)))?");
 

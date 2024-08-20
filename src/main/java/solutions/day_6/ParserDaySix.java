@@ -2,12 +2,12 @@ package solutions.day_6;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParseInput;
+import solutions.ParsePuzzelInput;
 import solutions.ProducesSolution;
 
 import java.util.Arrays;
 
-public class ParserDaySix implements ParseInput {
+public class ParserDaySix implements ParsePuzzelInput {
 
     @Override
     public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
