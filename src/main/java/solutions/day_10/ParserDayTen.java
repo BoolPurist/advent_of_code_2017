@@ -2,13 +2,13 @@ package solutions.day_10;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class ParserDayTen implements ParsePuzzelInput {
+public class ParserDayTen implements ParsePuzzleInput {
     private static final String SUFFIX = "17,31,73,47,23";
     private final int length;
 
@@ -66,7 +66,7 @@ public class ParserDayTen implements ParsePuzzelInput {
 
 
     @Override
-    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
         final var parsed = switch (task) {
             case FIRST -> splitInputToParse(input);
             case SECOND -> splitInputToParse(createACIICodesWithSuffix(input));

@@ -1,14 +1,14 @@
 package solutions.day_2;
 
 import solutions.GivenTask;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.Arrays;
 
-public final class ParserDayTwo implements ParsePuzzelInput {
+public final class ParserDayTwo implements ParsePuzzleInput {
     @Override
-    public ProducesSolution parse(String input, GivenTask task) {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) {
         var parsedLines = input.lines()
                 .map(nextLine -> Arrays.stream(nextLine.split("\\s+"))
                         .map(Integer::parseInt).toList())

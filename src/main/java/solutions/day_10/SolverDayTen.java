@@ -1,14 +1,14 @@
 package solutions.day_10;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class SolverDayTen implements ProducesSolution {
+public class SolverDayTen implements ProvidesPuzzleSolution {
     public static final int STANDARD_LENGTH = 256;
 
     private final List<Integer> lengthInput;

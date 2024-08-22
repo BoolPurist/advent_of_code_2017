@@ -1,10 +1,10 @@
 package solutions.day_11;
 
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.List;
 
-public final class SolverDayEleven implements ProducesSolution {
+public final class SolverDayEleven implements ProvidesPuzzleSolution {
 
     private static final int NO_VERTICAL = 0;
     private static final int NO_HORIZONTAL = 0;

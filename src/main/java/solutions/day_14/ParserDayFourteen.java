@@ -1,18 +1,16 @@
-package solutions.day_6;
+package solutions.day_14;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
 import solutions.ParsePuzzleInput;
 import solutions.ProvidesPuzzleSolution;
 
-import java.util.Arrays;
-
-public class ParserDaySix implements ParsePuzzleInput {
-
+public class ParserDayFourteen implements ParsePuzzleInput {
     @Override
     public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
-        final var data = Arrays.stream(input.trim().split("\\s+")).map(e -> Integer.parseInt(e)).toList();
-        return new SolverDaySix(data, task);
+        return switch (task) {
+            case FIRST -> new SolverDayFourteen(input);
+            case SECOND -> new SolverDayPart2Fourteen(input);
+        };
     }
-
 }

@@ -1,13 +1,13 @@
 package solutions.day_5;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
-public class SolverDayFive implements ProducesSolution {
+public class SolverDayFive implements ProvidesPuzzleSolution {
     private final List<Integer> data;
     private final GivenTask task;
 

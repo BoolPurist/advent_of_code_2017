@@ -1,7 +1,7 @@
 package solutions.day_8;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.Comparator;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.function.IntConsumer;
 import java.util.stream.Collectors;
 
-public class SolverDayEight implements ProducesSolution {
+public class SolverDayEight implements ProvidesPuzzleSolution {
     private final GivenTask task;
     private final Set<String> registers;
     private final List<Instruction> instructions;

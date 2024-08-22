@@ -2,12 +2,12 @@ package solutions.day_1;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 
-public final class ParserDayOne implements ParsePuzzelInput {
+public final class ParserDayOne implements ParsePuzzleInput {
     @Override
-    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
         try {
             final var data = input.chars().map(digit -> digit - '0').toArray();
             return new SolverDayOne(data, task);

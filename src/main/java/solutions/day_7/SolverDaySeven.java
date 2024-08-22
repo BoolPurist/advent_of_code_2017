@@ -1,7 +1,7 @@
 package solutions.day_7;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 import utils.Pair;
 import utils.PositiveInteger;
 import utils.ReadOnlyList;
@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class SolverDaySeven implements ProducesSolution {
+public class SolverDaySeven implements ProvidesPuzzleSolution {
     private final ReadOnlyList<ProgramOfTower> data;
     private GivenTask task;
 

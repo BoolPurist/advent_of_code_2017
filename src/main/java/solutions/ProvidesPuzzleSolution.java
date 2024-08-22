@@ -1,5 +1,5 @@
 package solutions;
 
-public interface ProducesSolution {
+public interface ProvidesPuzzleSolution {
     String produce();
 }

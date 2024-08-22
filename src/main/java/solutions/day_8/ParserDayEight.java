@@ -2,8 +2,8 @@ package solutions.day_8;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 import utils.Pair;
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-public final class ParserDayEight implements ParsePuzzelInput {
+public final class ParserDayEight implements ParsePuzzleInput {
     private static final Pattern lineRegex = Pattern.compile("(?<register>\\w+)\\s+(?<modifierOperator>inc|dec)\\s+(?<modifierAmount>-?\\d+)\\s+if\\s+(?<leftCond>\\w+)\\s+(?<condOperator>>|<|>=|<=|==|!=)\\s+(?<rightCond>-?\\d+)");
 
     public static Pair<Set<String>, Instruction> parseLine(String line) {
@@ -34,7 +34,7 @@ public final class ParserDayEight implements ParsePuzzelInput {
     }
 
     @Override
-    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
         var foundNames = new HashSet<String>();
         final var instructions = input.lines().map(line -> {
             final var parsed = parseLine(line);

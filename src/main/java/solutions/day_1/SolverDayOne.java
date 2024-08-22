@@ -1,11 +1,11 @@
 package solutions.day_1;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.function.Function;
 
-public final class SolverDayOne implements ProducesSolution {
+public final class SolverDayOne implements ProvidesPuzzleSolution {
     private final int[] digits;
     private GivenTask task;
 

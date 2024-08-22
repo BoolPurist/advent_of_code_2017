@@ -1,11 +1,11 @@
 package solutions.day_11;
 
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.HashSet;
 import java.util.List;
 
-public class SolverDayPart2Eleven implements ProducesSolution {
+public class SolverDayPart2Eleven implements ProvidesPuzzleSolution {
     private final List<HexagonDirection> route;
 
     public SolverDayPart2Eleven(List<HexagonDirection> route) {

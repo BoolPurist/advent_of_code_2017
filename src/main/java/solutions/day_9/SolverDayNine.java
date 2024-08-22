@@ -1,9 +1,9 @@
 package solutions.day_9;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
-public class SolverDayNine implements ProducesSolution {
+public class SolverDayNine implements ProvidesPuzzleSolution {
     private final String input;
     private GivenTask task;
 

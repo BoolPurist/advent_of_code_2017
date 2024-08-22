@@ -1,13 +1,14 @@
 package solutions.day_3;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
+import utils.Position;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public final class SolverDayThree implements ProducesSolution {
+public final class SolverDayThree implements ProvidesPuzzleSolution {
     private static final int ALL_CORNERS = 4;
     private static final int INCREASE_OF_EDGE_LENGTH = 2;
     private final int number;

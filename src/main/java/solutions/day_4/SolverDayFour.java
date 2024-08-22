@@ -1,14 +1,14 @@
 package solutions.day_4;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-public class SolverDayFour implements ProducesSolution {
+public class SolverDayFour implements ProvidesPuzzleSolution {
 
     private static final int IS_ANAGRAM = 0;
     private static final int IS_NO_ANAGRAM = 1;

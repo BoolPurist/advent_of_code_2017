@@ -2,8 +2,8 @@ package solutions.day_7;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 import utils.ReadOnlyList;
 
 import java.util.Arrays;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public final class ParserDaySeven implements ParsePuzzelInput {
+public final class ParserDaySeven implements ParsePuzzleInput {
     private static final Pattern regexLineProgramOfTower = Pattern.compile(
             "(?<programName>\\w+)\\s+\\((?<weight>\\d+)\\)(\\s+->\\s+(?<children>(\\w+,\\s*)*+(\\w+)))?");
 
@@ -34,7 +34,7 @@ public final class ParserDaySeven implements ParsePuzzelInput {
     }
 
     @Override
-    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
         final var parsedLines = input.lines().map(ParserDaySeven::parseLine);
         return new SolverDaySeven(new ReadOnlyList<>(parsedLines), task);
     }

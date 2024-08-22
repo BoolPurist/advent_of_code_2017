@@ -1,14 +1,14 @@
 package solutions.day_6;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.function.BiFunction;
 
-public class SolverDaySix implements ProducesSolution {
+public class SolverDaySix implements ProvidesPuzzleSolution {
     private final List<Integer> data;
     private GivenTask task;
 

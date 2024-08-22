@@ -2,7 +2,7 @@ package commons;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
+import solutions.ParsePuzzleInput;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -15,7 +15,7 @@ public final class Utils {
     }
 
 
-    public static void assertCase(String input, ParsePuzzelInput parser, GivenTask task, String expected) {
+    public static void assertCase(String input, ParsePuzzleInput parser, GivenTask task, String expected) {
         try {
             var solution = parser.parse(input, task);
             var actual = solution.produce();

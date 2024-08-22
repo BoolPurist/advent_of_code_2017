@@ -2,16 +2,16 @@ package solutions.day_4;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ParserDayFour implements ParsePuzzelInput {
+public class ParserDayFour implements ParsePuzzleInput {
 
     @Override
-    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
         var data = input.lines()
                 .map(line -> Stream.of(line.split("\\s")).collect(Collectors.toList())
 

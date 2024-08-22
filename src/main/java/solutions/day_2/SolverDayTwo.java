@@ -1,11 +1,11 @@
 package solutions.day_2;
 
 import solutions.GivenTask;
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.List;
 
-public final class SolverDayTwo implements ProducesSolution {
+public final class SolverDayTwo implements ProvidesPuzzleSolution {
     private final List<List<Integer>> matrix;
     private GivenTask task;
 

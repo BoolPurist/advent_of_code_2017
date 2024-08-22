@@ -1,11 +1,11 @@
 package solutions.day_13;
 
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.List;
 import java.util.Map;
 
-public final class SolverDayPart2Thirteen extends AbstractSolverDayThirteen implements ProducesSolution {
+public final class SolverDayPart2Thirteen extends AbstractSolverDayThirteen implements ProvidesPuzzleSolution {
 
 
     public SolverDayPart2Thirteen(List<FirewallLayerConfiguration> firewalls) {
@@ -53,7 +53,7 @@ public final class SolverDayPart2Thirteen extends AbstractSolverDayThirteen impl
         final var indexToHeight = createMapIndexToHeight();
 
         final var delayWithoutBeingCaught = findFirstDelayWithoutBeingCaught(indexToHeight);
-       
+
         return String.valueOf(delayWithoutBeingCaught);
     }
 

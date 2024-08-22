@@ -1,6 +1,6 @@
 package solutions.day_13;
 
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public final class SolverDayThirteen extends AbstractSolverDayThirteen implements ProducesSolution {
+public final class SolverDayThirteen extends AbstractSolverDayThirteen implements ProvidesPuzzleSolution {
 
     public SolverDayThirteen(List<FirewallLayerConfiguration> configurations) {
         super(configurations);

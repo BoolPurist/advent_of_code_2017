@@ -2,10 +2,10 @@ package solutions.day_13;
 
 import solutions.GivenTask;
 import solutions.InvalidInputException;
-import solutions.ParsePuzzelInput;
-import solutions.ProducesSolution;
+import solutions.ParsePuzzleInput;
+import solutions.ProvidesPuzzleSolution;
 
-public class ParserDayThirteen implements ParsePuzzelInput {
+public class ParserDayThirteen implements ParsePuzzleInput {
     private static FirewallLayerConfiguration parseLine(String line) {
         final var split = line.split(":");
         assert split.length >= 2;
@@ -15,7 +15,7 @@ public class ParserDayThirteen implements ParsePuzzelInput {
     }
 
     @Override
-    public ProducesSolution parse(String input, GivenTask task) throws InvalidInputException {
+    public ProvidesPuzzleSolution parse(String input, GivenTask task) throws InvalidInputException {
         final var parsed = input.lines().map(ParserDayThirteen::parseLine).toList();
 
         return switch (task) {

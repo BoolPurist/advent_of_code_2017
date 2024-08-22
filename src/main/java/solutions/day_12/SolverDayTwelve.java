@@ -1,10 +1,10 @@
 package solutions.day_12;
 
-import solutions.ProducesSolution;
+import solutions.ProvidesPuzzleSolution;
 
 import java.util.*;
 
-public class SolverDayTwelve implements ProducesSolution {
+public class SolverDayTwelve implements ProvidesPuzzleSolution {
     private final List<ProgramWithPipes> parsed;
 
     public SolverDayTwelve(List<ProgramWithPipes> parsed) {
