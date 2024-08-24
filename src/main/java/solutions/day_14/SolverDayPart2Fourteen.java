@@ -4,49 +4,16 @@ import solutions.ProvidesPuzzleSolution;
 import utils.GridBoundary;
 import utils.Position;
 
-import java.util.*;
-import java.util.function.Consumer;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class SolverDayPart2Fourteen extends AbstractSolverDayFourteen implements ProvidesPuzzleSolution {
     private static final GridBoundary BOUNDARY = new GridBoundary(0, 127, 0, 127);
 
     protected SolverDayPart2Fourteen(String unPrefixedHash) {
         super(unPrefixedHash);
-    }
-
-    public static List<Boolean> turnTextIntoBoolRow(String line) {
-        var allBooleans = new ArrayList<Boolean>();
-        for (int indexChar = 0; indexChar < line.length(); indexChar++) {
-            final var currentChar = line.charAt(indexChar);
-            final var charAsInt = Integer.parseInt(Character.toString(currentChar), 16);
-            final var booleanValues = turnNumberIntoBoolRow(charAsInt);
-
-            for (final var next : booleanValues) {
-                allBooleans.add(next);
-            }
-        }
-        return allBooleans.stream().toList();
-    }
-
-    public static boolean[] turnNumberIntoBoolRow(int number) {
-        final var UPPER_LIMIT = 4;
-
-        final var reverseSavingConsumer = new Consumer<Boolean>() {
-            private final boolean[] sequence = new boolean[UPPER_LIMIT];
-            private int index = UPPER_LIMIT - 1;
-
-            public boolean[] getSequence() {
-                return sequence;
-            }
-
-            @Override
-            public void accept(Boolean isOneBit) {
-                sequence[index] = isOneBit;
-                index--;
-            }
-        };
-        SolverDayFourteen.traverseIntegerBitwise(number, UPPER_LIMIT, reverseSavingConsumer);
-        return reverseSavingConsumer.getSequence();
     }
 
 
