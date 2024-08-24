@@ -13,6 +13,7 @@ import solutions.day_11.ParserDayEleven;
 import solutions.day_12.ParserDayTwelve;
 import solutions.day_13.ParserDayThirteen;
 import solutions.day_14.ParserDayFourteen;
+import solutions.day_15.ParserDayFifteen;
 import solutions.day_2.ParserDayTwo;
 import solutions.day_3.ParserDayThree;
 import solutions.day_4.ParserDayFour;
@@ -29,7 +30,8 @@ import java.nio.file.Paths;
 public final class Program {
     private static final ParsePuzzleInput[] solutionList = {new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
             new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven(), new ParserDayEight(), new ParserDayNine(),
-            new ParserDayTen(), new ParserDayEleven(), new ParserDayTwelve(), new ParserDayThirteen(), new ParserDayFourteen()
+            new ParserDayTen(), new ParserDayEleven(), new ParserDayTwelve(), new ParserDayThirteen(), new ParserDayFourteen(),
+            new ParserDayFifteen()
     };
 
     public static void main(String[] args) {
