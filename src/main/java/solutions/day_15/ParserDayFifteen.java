@@ -16,6 +16,10 @@ public final class ParserDayFifteen implements ParsePuzzleInput {
         assert lines.size() == 2;
         final var aGenerator = Long.parseLong(lines.getFirst().replaceFirst(PREFIX_A, ""), 10);
         final var bGenerator = Long.parseLong(lines.getLast().replaceFirst(PREFIX_B, ""), 10);
-        return new SolverDayFifteen(new GeneratorStartingValue(aGenerator, bGenerator));
+        final var generatorStarting = new GeneratorStartingValue(aGenerator, bGenerator);
+        return switch (task) {
+            case FIRST -> new SolverDayFifteen(generatorStarting);
+            case SECOND -> new SolverDayPart2DayFifteen(generatorStarting);
+        };
     }
 }

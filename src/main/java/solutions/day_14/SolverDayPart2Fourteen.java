@@ -12,7 +12,7 @@ import java.util.Set;
 public class SolverDayPart2Fourteen extends AbstractSolverDayFourteen implements ProvidesPuzzleSolution {
     private static final GridBoundary BOUNDARY = new GridBoundary(0, 127, 0, 127);
 
-    protected SolverDayPart2Fourteen(String unPrefixedHash) {
+    public SolverDayPart2Fourteen(String unPrefixedHash) {
         super(unPrefixedHash);
     }
 
