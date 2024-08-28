@@ -32,7 +32,7 @@ public final class Program {
     private static final ParsePuzzleInput[] solutionList = {new ParserDayOne(), new ParserDayTwo(), new ParserDayThree(),
             new ParserDayFour(), new ParserDayFive(), new ParserDaySix(), new ParserDaySeven(), new ParserDayEight(), new ParserDayNine(),
             new ParserDayTen(), new ParserDayEleven(), new ParserDayTwelve(), new ParserDayThirteen(), new ParserDayFourteen(),
-            new ParserDayFifteen(), new ParserDaySixteen(),
+            new ParserDayFifteen(), new ParserDaySixteen(), new solutions.day_17.Parser(),
     };
 
     public static void main(String[] args) {
